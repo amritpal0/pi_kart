@@ -1,0 +1,6 @@
+/*your custom css goes here*/ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.bg-light {
+	background: #efd6c9 !important;
+} 
