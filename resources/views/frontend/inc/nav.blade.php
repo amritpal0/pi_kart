@@ -26,7 +26,7 @@
     @endif
 
     <!-- Top Bar -->
-    <div class="top-navbar bg-light z-1035 h-35px h-sm-auto">
+    <div class="top-navbar bg-theme z-1035 h-35px h-sm-auto">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col">
@@ -78,6 +78,21 @@
                                 </ul>
                             </li>
                         @endif
+                        @if (get_setting('helpline_number'))
+                            <!-- Helpline -->
+                            <li class="list-inline-item ml-3  pl-3 mr-0 pr-0">
+                                <a href="tel:{{ get_setting('helpline_number') }}"
+                                    class="text-dark fs-12 d-inline-block py-2">
+                                    <span class="mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 128 128">
+                                        <path d="M96.131 123.433c-13.342 0-38.082-3.982-62.831-28.733C4.67 66.071 3.829 37.453 4.8 26.478a19.431 19.431 0 0 1 4.445-10.735l6.973-8.4a7.716 7.716 0 0 1 11.394-.528L50.205 29.41a7.717 7.717 0 0 1-.528 11.4l-15.424 12.8a82.706 82.706 0 0 0 16.712 23.425 82.726 82.726 0 0 0 23.426 16.712L87.2 78.322a7.718 7.718 0 0 1 11.4-.527l22.593 22.593a7.716 7.716 0 0 1-.528 11.394l-8.4 6.973a19.438 19.438 0 0 1-10.735 4.448 61.91 61.91 0 0 1-5.399.23zM22.164 8.057h-.2a4.171 4.171 0 0 0-3.05 1.52l-6.973 8.4a15.945 15.945 0 0 0-3.655 8.807c-.924 10.486-.1 37.853 27.491 65.44s54.958 28.415 65.441 27.491a15.936 15.936 0 0 0 8.8-3.656l8.4-6.972a4.218 4.218 0 0 0 .289-6.227L96.115 80.27a4.216 4.216 0 0 0-6.226.288l-13.66 16.454a1.752 1.752 0 0 1-2.056.481A85.615 85.615 0 0 1 48.49 79.51a85.615 85.615 0 0 1-17.983-25.683 1.75 1.75 0 0 1 .481-2.056l16.453-13.66a4.215 4.215 0 0 0 .289-6.226L25.138 9.292a4.166 4.166 0 0 0-2.974-1.235zm-4.6.406zM111.752 61.86A1.749 1.749 0 0 1 110 60.11 42.161 42.161 0 0 0 67.89 18a1.75 1.75 0 1 1 0-3.5 45.664 45.664 0 0 1 45.61 45.61 1.749 1.749 0 0 1-1.748 1.75z"/><path d="M101.442 61.86a1.75 1.75 0 0 1-1.75-1.75 31.838 31.838 0 0 0-31.8-31.8 1.75 1.75 0 0 1 0-3.5 35.343 35.343 0 0 1 35.3 35.3 1.749 1.749 0 0 1-1.75 1.75z"/><path d="M91.132 61.86a1.749 1.749 0 0 1-1.75-1.75A21.517 21.517 0 0 0 67.89 38.618a1.75 1.75 0 0 1 0-3.5A25.021 25.021 0 0 1 92.882 60.11a1.749 1.749 0 0 1-1.75 1.75z"/>
+                                    </svg>
+
+                                    </span>
+                                    <span>{{ get_setting('helpline_number') }}</span>
+                                </a>
+                            </li>
+                        @endif
 
                     </ul>
                 </div>
@@ -88,22 +103,12 @@
                             <!-- Become a Seller -->
                             <li class="list-inline-item mr-0 pl-0 py-2">
                                 <a href="{{ route('shops.create') }}"
-                                    class="text-dark fs-12 pr-3 d-inline-block border-width-2 border-right">{{ translate('Become a Seller !') }}</a>
+                                    class="text-dark fs-12 pr-3 d-inline-block border-width-1 border-dark border-right">{{ translate('Become a Seller !') }}</a>
                             </li>
                             <!-- Seller Login -->
                             <li class="list-inline-item mr-0 pl-0 py-2">
                                 <a href="{{ route('seller.login') }}"
                                     class="fs-12 text-dark pl-3 d-inline-block">{{ translate('Login to Seller') }}</a>
-                            </li>
-                        @endif
-                        @if (get_setting('helpline_number'))
-                            <!-- Helpline -->
-                            <li class="list-inline-item ml-3 pl-3 mr-0 pr-0">
-                                <a href="tel:{{ get_setting('helpline_number') }}"
-                                    class="text-secondary fs-12 d-inline-block py-2">
-                                    <span>{{ translate('Helpline') }}</span>
-                                    <span>{{ get_setting('helpline_number') }}</span>
-                                </a>
                             </li>
                         @endif
                     </ul>
@@ -112,7 +117,7 @@
         </div>
     </div>
 
-    <header class="@if (get_setting('header_stikcy') == 'on') sticky-top @endif z-1020 bg-white">
+    <header class="@if (get_setting('header_stikcy') == 'on') sticky-top @endif z-1020 bg-light header-shadow">
         <!-- Search Bar -->
         <div class="position-relative logo-bar-area border-bottom border-md-nonea z-1025">
             <div class="container">
@@ -139,10 +144,10 @@
                             @endphp
                             @if ($header_logo != null)
                                 <img src="{{ uploaded_asset($header_logo) }}" alt="{{ env('APP_NAME') }}"
-                                    class="mw-100 h-30px h-md-40px" height="40">
+                                    class="mw-100 h-60px" height="40">
                             @else
                                 <img src="{{ static_asset('assets/img/logo.png') }}" alt="{{ env('APP_NAME') }}"
-                                    class="mw-100 h-30px h-md-40px" height="40">
+                                    class="mw-100 h-60px" height="40">
                             @endif
                         </a>
                     </div>
@@ -154,8 +159,8 @@
                         </a>
                     </div>
                     <!-- Search field -->
-                    <div class="flex-grow-1 front-header-search d-flex align-items-center bg-white mx-xl-5">
-                        <div class="position-relative flex-grow-1 px-3 px-lg-0">
+                    <div class="flex-grow-1 front-header-search d-flex align-items-center mx-xl-5">
+                        <!-- <div class="position-relative flex-grow-1 px-3 px-lg-0">
                             <form action="{{ route('search') }}" method="GET" class="stop-propagation">
                                 <div class="d-flex position-relative align-items-center">
                                     <div class="d-lg-none" data-toggle="class-toggle"
@@ -200,29 +205,39 @@
 
                                 </div>
                             </div>
+                        </div> -->
+                        @php
+                        $nav_txt_color = ((get_setting('header_nav_menu_text') == 'light') ||  (get_setting('header_nav_menu_text') == null)) ? 'text-white' : 'text-dark';
+                        @endphp
+                        <div class="ml-xl-4 w-100 overflow-hidden header_menu">
+                            <div class="d-flex align-items-center h-100 justify-content-end">
+                                <ul class="list-inline mb-0 pl-0 hor-swipe c-scrollbar-light">
+                                    @if (get_setting('header_menu_labels') != null)
+                                        @foreach (json_decode(get_setting('header_menu_labels'), true) as $key => $value)
+                                            <li class="list-inline-item mr-0 animate-underline-white">
+                                                <a href="{{ json_decode(get_setting('header_menu_links'), true)[$key] }}"
+                                                    class="fs-13 px-3 py-3 d-inline-block fw-500 {{ $nav_txt_color }} header_menu_links
+                                                @if (url()->current() == json_decode(get_setting('header_menu_links'), true)[$key]) active @endif">
+                                                    {{ translate($value) }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <!-- Search box -->
-                    <div class="d-none d-lg-none ml-3 mr-0">
+                    <div class="ml-3 mr-0">
                         <div class="nav-search-box">
-                            <a href="#" class="nav-box-link">
-                                <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
+                            <a href="#" class="nav-box-link text-dark">
+                            <svg class="svg-search icon icon--header-search" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00002 1.6C4.4654 1.6 1.60002 4.46538 1.60002 8C1.60002 11.5346 4.4654 14.4 8.00002 14.4C11.5346 14.4 14.4 11.5346 14.4 8C14.4 4.46538 11.5346 1.6 8.00002 1.6ZM0.400024 8C0.400024 3.80264 3.80266 0.400002 8.00002 0.400002C12.1974 0.400002 15.6 3.80264 15.6 8C15.6 9.88268 14.9155 11.6055 13.7817 12.933L19.4243 18.5757C19.6586 18.8101 19.6586 19.19 19.4243 19.4243C19.19 19.6586 18.8101 19.6586 18.5758 19.4243L12.9332 13.7816C11.6056 14.9154 9.88275 15.6 8.00002 15.6C3.80266 15.6 0.400024 12.1974 0.400024 8Z" fill="currentColor"></path>
+                            </svg>
                             </a>
                         </div>
                     </div>
-                    <!-- Compare -->
-                    <div class="d-none d-lg-block ml-3 mr-0">
-                        <div class="" id="compare">
-                            @include('frontend.'.get_setting('homepage_select').'.partials.compare')
-                        </div>
-                    </div>
-                    <!-- Wishlist -->
-                    <div class="d-none d-lg-block mr-3" style="margin-left: 36px;">
-                        <div class="" id="wishlist">
-                            @include('frontend.'.get_setting('homepage_select').'.partials.wishlist')
-                        </div>
-                    </div>
-                    @if (!isAdmin())
+                    {{--@if (!isAdmin())
                         <!-- Notifications -->
                         <ul class="list-inline mb-0 h-100 d-none d-xl-flex justify-content-end align-items-center">
                             <li class="list-inline-item ml-3 mr-3 pr-3 pl-0 dropdown">
@@ -294,16 +309,16 @@
                                 @endauth
                             </li>
                         </ul>
-                    @endif
+                    @endif--}}
 
-                    <div class="d-none d-xl-block ml-auto mr-0">
+                    <div class="d-none d-xl-block ml-3 mr-0">
                         @auth
                             <span
                                 class="d-flex align-items-center nav-user-info py-20px @if (isAdmin()) ml-5 @endif"
                                 id="nav-user-info">
                                 <!-- Image -->
                                 <span
-                                    class="size-40px rounded-circle overflow-hidden border border-transparent nav-user-img">
+                                    class="size-40px rounded-circle overflow-hidden border border-transparent ">
                                     @if ($user->avatar_original != null)
                                         <img src="{{ $user_avatar }}"
                                             class="img-fit h-100" alt="{{ translate('avatar') }}"
@@ -319,22 +334,30 @@
                         @else
                             <!--Login & Registration -->
                             <span class="d-flex align-items-center nav-user-info ml-3">
+                                <a href="{{ route('user.login') }}">
                                 <!-- Image -->
                                 <span
-                                    class="size-40px rounded-circle overflow-hidden border d-flex align-items-center justify-content-center nav-user-img">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="19.902" height="20.012"
-                                        viewBox="0 0 19.902 20.012">
-                                        <path id="fe2df171891038b33e9624c27e96e367"
-                                            d="M15.71,12.71a6,6,0,1,0-7.42,0,10,10,0,0,0-6.22,8.18,1.006,1.006,0,1,0,2,.22,8,8,0,0,1,15.9,0,1,1,0,0,0,1,.89h.11a1,1,0,0,0,.88-1.1,10,10,0,0,0-6.25-8.19ZM12,12a4,4,0,1,1,4-4A4,4,0,0,1,12,12Z"
-                                            transform="translate(-2.064 -1.995)" fill="#91919b" />
+                                    class="size-40px rounded-circle overflow-hidden d-flex align-items-center justify-content-center ">
+                                    <svg class="icon-user " aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 26 26" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13 24.5C19.3513 24.5 24.5 19.3513 24.5 13C24.5 6.64873 19.3513 1.5 13 1.5C6.64873 1.5 1.5 6.64873 1.5 13C1.5 19.3513 6.64873 24.5 13 24.5Z" stroke="#000" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M4.95898 21.221C6.66657 20.2309 8.48298 19.4416 10.372 18.869C11.209 18.56 11.3 16.64 10.7 15.98C9.83398 15.027 9.09998 13.91 9.09998 11.214C8.99795 10.1275 9.36642 9.04944 10.1121 8.25272C10.8578 7.45599 11.9092 7.01703 13 7.047C14.0908 7.01703 15.1422 7.45599 15.8879 8.25272C16.6335 9.04944 17.002 10.1275 16.9 11.214C16.9 13.914 16.166 15.027 15.3 15.98C14.7 16.64 14.791 18.56 15.628 18.869C17.517 19.4416 19.3334 20.2309 21.041 21.221" stroke="#000" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
                                 </span>
-                                <a href="{{ route('user.login') }}"
-                                    class="text-reset opacity-60 hov-opacity-100 hov-text-primary fs-12 d-inline-block border-right border-soft-light border-width-2 pr-2 ml-3">{{ translate('Login') }}</a>
-                                <a href="{{ route('user.registration') }}"
-                                    class="text-reset opacity-60 hov-opacity-100 hov-text-primary fs-12 d-inline-block py-2 pl-2">{{ translate('Registration') }}</a>
+                                </a>
                             </span>
                         @endauth
+                    </div>
+                    <!-- Wishlist -->
+                    <div class="d-none d-lg-block ml-3" >
+                        <div class="" id="wishlist">
+                            @include('frontend.'.get_setting('homepage_select').'.partials.wishlist')
+                        </div>
+                    </div>
+                    <div class="d-none d-xl-block align-self-stretch  mr-0 has-transition "
+                        data-hover="dropdown">
+                        <div class="nav-cart-box dropdown h-100" id="cart_items" style="width: max-content;">
+                            @include('frontend.'.get_setting('homepage_select').'.partials.cart')
+                        </div>
                     </div>
                 </div>
             </div>
@@ -528,70 +551,6 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Menu Bar -->
-        <div class="d-none d-lg-block position-relative bg-primary h-50px">
-            <div class="container h-100">
-                <div class="d-flex h-100">
-                    <!-- Categoty Menu Button -->
-                    <div class="d-none d-xl-block all-category has-transition bg-black-10" id="category-menu-bar">
-                        <div class="px-3 h-100"
-                            style="padding-top: 12px;padding-bottom: 12px; width:270px; cursor: pointer;">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <span class="fw-700 fs-16 text-white mr-3">{{ translate('Categories') }}</span>
-                                    <a href="{{ route('categories.all') }}" class="text-reset">
-                                        <span
-                                            class="d-none d-lg-inline-block text-white hov-opacity-80">({{ translate('See All') }})</span>
-                                    </a>
-                                </div>
-                                <i class="las la-angle-down text-white has-transition" id="category-menu-bar-icon"
-                                    style="font-size: 1.2rem !important"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Header Menus -->
-                    @php
-                        $nav_txt_color = ((get_setting('header_nav_menu_text') == 'light') ||  (get_setting('header_nav_menu_text') == null)) ? 'text-white' : 'text-dark';
-                    @endphp
-                    <div class="ml-xl-4 w-100 overflow-hidden">
-                        <div class="d-flex align-items-center justify-content-center justify-content-xl-start h-100">
-                            <ul class="list-inline mb-0 pl-0 hor-swipe c-scrollbar-light">
-                                @if (get_setting('header_menu_labels') != null)
-                                    @foreach (json_decode(get_setting('header_menu_labels'), true) as $key => $value)
-                                        <li class="list-inline-item mr-0 animate-underline-white">
-                                            <a href="{{ json_decode(get_setting('header_menu_links'), true)[$key] }}"
-                                                class="fs-13 px-3 py-3 d-inline-block fw-700 {{ $nav_txt_color }} header_menu_links hov-bg-black-10
-                                            @if (url()->current() == json_decode(get_setting('header_menu_links'), true)[$key]) active @endif">
-                                                {{ translate($value) }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Cart -->
-                    <div class="d-none d-xl-block align-self-stretch ml-5 mr-0 has-transition bg-black-10"
-                        data-hover="dropdown">
-                        <div class="nav-cart-box dropdown h-100" id="cart_items" style="width: max-content;">
-                            @include('frontend.'.get_setting('homepage_select').'.partials.cart')
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Categoty Menus -->
-            <div class="hover-category-menu position-absolute w-100 top-100 left-0 right-0 z-3 d-none"
-                id="click-category-menu">
-                <div class="container">
-                    <div class="d-flex position-relative">
-                        <div class="position-static">
-                            @include('frontend.'.get_setting("homepage_select").'.partials.category_menu')
                         </div>
                     </div>
                 </div>
