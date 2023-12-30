@@ -228,7 +228,7 @@
                         </div>
                     </div>
                     <!-- Search box -->
-                    <div class="ml-3 mr-0">
+                    {{--<div class="ml-3 mr-0">
                         <div class="nav-search-box">
                             <a href="#" class="nav-box-link text-dark">
                             <svg class="svg-search icon icon--header-search" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -236,7 +236,7 @@
                             </svg>
                             </a>
                         </div>
-                    </div>
+                    </div>--}}
                     {{--@if (!isAdmin())
                         <!-- Notifications -->
                         <ul class="list-inline mb-0 h-100 d-none d-xl-flex justify-content-end align-items-center">

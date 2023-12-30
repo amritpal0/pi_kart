@@ -133,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                {{--<div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product Videos')}}</h5>
                     </div>
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Product Variation')}}</h5>
@@ -286,7 +286,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{--<div class="form-group row">
                             <label class="col-md-3 col-from-label">
                                 {{translate('External link')}}
                             </label>
@@ -303,7 +303,7 @@
                                 <input type="text" placeholder="{{ translate('External link button text') }}" name="external_link_btn" value="{{ $product->external_link_btn }}" class="form-control">
                                 <small class="text-muted">{{translate('Leave it blank if you do not use external site link')}}</small>
                             </div>
-                        </div>
+                        </div>--}}
                         <br>
                         <div class="sku_combination" id="sku_combination">
 
@@ -324,7 +324,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                {{--<div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('PDF Specification')}}</h5>
                     </div>
@@ -344,7 +344,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('SEO Meta Tags')}}</h5>
@@ -399,7 +399,7 @@
                         </h6>
                     </div>
                     <div class="card-body ">
-                        <div class="h-300px overflow-auto c-scrollbar-light">
+                        <div class=" overflow-auto c-scrollbar-light">
                             @php
                                 $old_categories = $product->categories()->pluck('category_id')->toArray();
                             @endphp
@@ -415,7 +415,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                {{--<div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_2">
                             {{translate('Shipping Configuration')}}
@@ -470,7 +470,7 @@
                         </p>
                         @endif
                     </div>
-                </div>
+                </div>--}}
 
                 <div class="card">
                     <div class="card-header">
@@ -528,7 +528,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                {{--<div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Cash On Delivery')}}</h5>
                     </div>
@@ -556,7 +556,7 @@
                             </p>
                         @endif
                     </div>
-                </div>
+                </div>--}}
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Featured')}}</h5>
@@ -578,7 +578,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+               {{--<div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 h6">{{translate('Todays Deal')}}</h5>
                     </div>
@@ -658,7 +658,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
 
                 <div class="card">
                     <div class="card-header">
